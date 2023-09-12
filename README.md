@@ -10,5 +10,5 @@
 - Uso do ExpressJS, Typescript e SQLite
 - Cobertura de testes (pelo menos 70% da Business)
 - API deployada
--  Documentação POSTMAN  ===>> colocar
+-  Documentação POSTMAN  --- https://documenter.getpostman.com/view/27687058/2s9YC32Zu7
 
