@@ -5,7 +5,7 @@ export interface GetPostsInputDTO {
   token: string;
 }
 
-export type GetPostsOutputDTO = PostModel;
+export type GetPostsOutputDTO = PostModel[];
 
 export const GetPostsSchema = z
   .object({
