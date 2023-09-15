@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { userRouter } from "./router/useRouter";
 import { PostController } from "./controller/PostController";
 import { postRouter } from "./router/postRouter";
+import { commentRouter } from "./router/commentsRouter";
 
 dotenv.config();
 
@@ -22,3 +23,4 @@ app.get("/ping", (req: Request, res: Response) => {
 app.use("/users", userRouter);
 
 app.use("/posts", postRouter);
+app.use("/comments", commentRouter);

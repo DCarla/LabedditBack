@@ -1,28 +1,31 @@
 export interface CommentDB {
   id: string;
   creator_id: string;
-  comment_content: string;
+  content: string;
   likes: number;
   dislikes: number;
   created_at: string;
+  post_id: string;
 }
 
 export interface CommentDBWithCreatorName {
   id: string;
-  comment_content: string;
+  content: string;
   likes: number;
   dislikes: number;
   created_at: string;
   creator_id: string;
   creator_name: string;
+  post_id: string;
 }
 
 export interface CommentModel {
   id: string;
-  commentContent: string;
+  content: string;
   likes: number;
   dislikes: number;
   createdAt: string;
+  postId: string;
   creator: {
     id: string;
     name: string;
@@ -50,7 +53,7 @@ export interface PostCommentModel {
   creatorId: string;
   name: string;
   commentId: string;
-  commentContent: string;
+  content: string;
   likes: number;
   dislikes: number;
 }
@@ -58,7 +61,8 @@ export interface PostCommentModel {
 export class Comment {
   constructor(
     private id: string,
-    private commentContent: string,
+    private postId: string,
+    private content: string,
     private likes: number,
     private dislikes: number,
     private createdAt: string,
@@ -69,12 +73,18 @@ export class Comment {
   public getId(): string {
     return this.id;
   }
+  public getPostId(): string {
+    return this.postId;
+  }
+  public setPostId(value: string) {
+    this.postId = value;
+  }
 
   public getContent(): string {
-    return this.commentContent;
+    return this.content;
   }
   public setContent(value: string) {
-    this.commentContent = value;
+    this.content = value;
   }
 
   public getLikes(): number {
@@ -125,20 +135,22 @@ export class Comment {
     return {
       id: this.id,
       creator_id: this.creatorId,
-      comment_content: this.commentContent,
+      content: this.content,
       likes: this.likes,
       dislikes: this.dislikes,
       created_at: this.createdAt,
+      post_id: this.postId,
     };
   }
 
   public toBusinessModel(): CommentModel {
     return {
       id: this.id,
-      commentContent: this.commentContent,
+      content: this.content,
       likes: this.likes,
       dislikes: this.dislikes,
       createdAt: this.createdAt,
+      postId: this.postId,
       creator: {
         id: this.creatorId,
         name: this.creatorName,
