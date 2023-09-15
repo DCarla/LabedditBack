@@ -37,29 +37,29 @@ CREATE TABLE posts(
         ON UPDATE CASCADE
         ON DELETE CASCADE);
 
-CREATE TABLE comments(
-        user_id TEXT NOT NULL,
+CREATE TABLE
+    comments(
+        id TEXT PRIMARY KEY NOT NULL,
+        creator_id TEXT NOT NULL,
         post_id TEXT NOT NULL,
-        comment TEXT NOT NULL,
-        created_at TEXT DEFAULT(datetime('now','localtime')),
-        updated_at TEXT ,
-        FOREIGN KEY (user_id) REFERENCES users(id)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE,
-    FOREIGN KEY (post_id) REFERENCES posts(id)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE);
+        content TEXT NOT NULL,
+        likes INTEGER NOT NULL,
+        dislikes INTEGER NOT NULL,
+        created_at TEXT NOT NULL,
+        FOREIGN KEY (creator_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
+        FOREIGN KEY (post_id) REFERENCES posts(id) ON UPDATE CASCADE ON DELETE CASCADE
+    );
 
   drop table comments  ;    
  
 CREATE TABLE comments_like_dislike(
         user_id TEXT NOT NULL,
-        comments_id TEXT NOT NULL,
+        comment_id TEXT NOT NULL,
         like INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)
         ON UPDATE CASCADE
         ON DELETE CASCADE,
-    FOREIGN KEY (comments_id) REFERENCES comments(id)
+    FOREIGN KEY (comment_id) REFERENCES comments(id)
         ON UPDATE CASCADE
         ON DELETE CASCADE);
 
