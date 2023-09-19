@@ -10,5 +10,5 @@ Mobile First é um conceito aplicado em projetos web onde o foco inicial da arqu
 - Uso do ExpressJS, Typescript e SQLite
 - Cobertura de testes (pelo menos 70% da Business)
 - API deployada
--  Documentação POSTMAN  --- https://documenter.getpostman.com/view/27687058/2s9YC32Zu7
-
+-  Documentação POSTMAN - https://documenter.getpostman.com/view/27687058/2s9YC32Zu7
+ 
